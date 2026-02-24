@@ -28,49 +28,58 @@
   </section>
 </template>
 
-<script setup>
-const columns = [
-  {
-    title: 'FULL-STACK',
-    items: [
-      { label: 'Java / Spring Boot', value: 95 },
-      { label: 'REST APIs', value: 95 },
-      { label: 'Vue.js', value: 90 },
-      { label: 'Spring Security', value: 80 },
-      { label: 'JUnit / Mockito', value: 75 },
-    ],
+<script>
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'Skills',
+  data() {
+    return {
+      columns: [
+        {
+          title: 'FULL-STACK',
+          items: [
+            { label: 'Java / Spring Boot', value: 95 },
+            { label: 'REST APIs', value: 95 },
+            { label: 'Vue.js', value: 90 },
+            { label: 'Spring Security', value: 80 },
+            { label: 'JUnit / Mockito', value: 75 },
+          ],
+        },
+        {
+          title: 'DATA & DEVOPS',
+          items: [
+            { label: 'SQL / PostgreSQL', value: 95 },
+            { label: 'JPA / Hibernate', value: 90 },
+            { label: 'Git / GitLab', value: 95 },
+            { label: 'CI/CD', value: 80 },
+            { label: 'Docker', value: 70 },
+          ],
+        },
+        {
+          title: 'SYSTEMS & C/C++',
+          items: [
+            { label: 'C / C++', value: 85 },
+            { label: 'Data Structures & Algorithms', value: 90 },
+            { label: 'Multithreading', value: 80 },
+            { label: 'OpenGL / Graphics', value: 75 },
+            { label: 'OOP / Design Patterns', value: 95 },
+          ],
+        },
+        {
+          title: 'AI, HARDWARE & 3D',
+          items: [
+            { label: 'FPGA / VHDL', value: 90 },
+            { label: 'Xilinx Vivado', value: 85 },
+            { label: 'Vitis / HLS', value: 70 },
+            { label: 'AI APIs (Gemini/OpenAI)', value: 65 },
+            { label: 'Blender', value: 70 },
+          ],
+        },
+      ],
+    }
   },
-  {
-    title: 'DATA & DEVOPS',
-    items: [
-      { label: 'SQL / PostgreSQL', value: 95 },
-      { label: 'JPA / Hibernate', value: 90 },
-      { label: 'Git / GitLab', value: 95 },
-      { label: 'CI/CD', value: 80 },
-      { label: 'Docker', value: 70 },
-    ],
-  },
-  {
-    title: 'SYSTEMS & C/C++',
-    items: [
-      { label: 'C / C++', value: 85 },
-      { label: 'Data Structures & Algorithms', value: 90 },
-      { label: 'Multithreading', value: 80 },
-      { label: 'OpenGL / Graphics', value: 75 },
-      { label: 'OOP / Design Patterns', value: 95 },
-    ],
-  },
-  {
-    title: 'AI, HARDWARE & 3D',
-    items: [
-      { label: 'FPGA / VHDL', value: 90 },
-      { label: 'Xilinx Vivado', value: 85 },
-      { label: 'Vitis / HLS', value: 70 },
-      { label: 'AI APIs (Gemini/OpenAI)', value: 65 },
-      { label: 'Blender', value: 70 },
-    ],
-  },
-]
+})
 </script>
 
 <style scoped>
