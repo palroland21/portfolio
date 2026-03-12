@@ -50,7 +50,14 @@
           </div>
 
           <div class="card-foot">
-            <span class="created">Created: {{ p.year }}</span>
+            <div class="foot-left">
+              <span class="created">Created: {{ p.year }}</span>
+
+              <button  v-if="p.detailsEnabled" class="details-btn" @click="openDetails(p)">
+                Show details
+              </button>
+            </div>
+
             <a v-if="p.github" class="gh" :href="p.github" target="_blank" rel="noreferrer">
               GitHub <span class="arrow">↗</span>
             </a>
@@ -79,6 +86,8 @@ export default defineComponent({
           type: 'Full-Stack',
           year: 2026,
           featured: true,
+          detailsEnabled: true,
+          slug: 'rv-auto-seller',
           desc: 'Car marketplace similar to OLX, focused on vehicle listings. Users can browse and search cars with filters, view listing details, contact sellers, leave reviews, and schedule appointments for viewings. Built with a Spring Boot REST backend secured with JWT authentication and a Vue 3 frontend that consumes the API via Axios.',
           tech: ['Java 17','Spring Boot 3.5','Spring Security','JWT','REST API','PostgreSQL','Spring Data JPA (Hibernate)','Bean Validation','Lombok','Vue 3','Vite','Vue Router','Axios'],
           tags: ['Full-Stack','Marketplace','Auth/JWT','REST','PostgreSQL','Appointments','Reviews'],
@@ -89,6 +98,7 @@ export default defineComponent({
           type: ['Full-Stack', 'AI'],
           year: 2025,
           featured: true,
+          detailsEnabled: false,
           desc: 'Crisis response PWA built in 48 hours: Victims create help requests and Rescuers can browse, filter, and accept nearby cases. Includes GPS-based map view (Leaflet), role-based auth, AI medical triage with Gemini (severity 1–3), and Stripe payments for donations/subscriptions.',
           tech: [ 'Java 17','Spring Boot','Spring Security','JWT','PostgreSQL','JPA/Hibernate','Vue 3', 'Google Maps', 'Vite','Pinia','Leaflet (Maps/GPS)','Stripe','Gemini AI','Firebase'],
           tags: [ 'AI Triage','Maps/GPS','Auth/JWT','Stripe Payments','Hackathon', 'APIs', 'Web', 'PWA',],
@@ -99,6 +109,7 @@ export default defineComponent({
           type: 'Systems',
           year: 2024,
           featured: false,
+          detailsEnabled: false,
           desc: 'Multithreaded queue simulation with a Swing UI for configuring the scenario (clients, queues, simulation time, arrival/service ranges). Generates random clients and dispatches them to servers using scheduling strategies (shortest queue / shortest waiting time), while logging the real-time evolution and computing final stats like average waiting/service time and peak hour.',
           tech: ['Java','OOP','Multithreading','Swing','BlockingQueue','Synchronization','Atomic/Locks','File Logging'],
           tags: ['Concurrency','Scheduling','Simulation','GUI','OOP','Desktop'],
@@ -109,6 +120,7 @@ export default defineComponent({
           type: 'Hardware',
           year: 2026,
           featured: true,
+          detailsEnabled: false,
           desc: 'FPGA memory game in VHDL on Nexys4/Nexys A7 with a clear Game FSM (generate → show → input → check → win/lose). Uses a 16-bit LFSR for pseudo-random digit sequences (0–9), Pmod KYPD 4x4 keypad input with edge-detect, and a multiplexed 7-seg driver where the display speed increases with level. After each round, the board sends level + result over UART to a Python (pyserial) logger that adds timestamps and tracks best score.',
           tech: ['VHDL','Vivado','Nexys A7 (Artix-7)','FSM Design','LFSR (16-bit)','7-Segment Multiplexing','Pmod KYPD (4x4)','UART TX','Python','pyserial'],
           tags: ['FPGA','Embedded','Digital Design','UART','Verification','Hardware'],
@@ -119,6 +131,7 @@ export default defineComponent({
           type: 'Graphics',
           year: 2026,
           featured: true,
+          detailsEnabled: false,
           desc: 'First-person horror exploration scene in an abandoned hospital, built in OpenGL with FPS camera (WASD + mouse), door interaction (animated open/close + auto-close), collisions (AABB + player cylinder), gravity with multi-level floor patches, camera flashlight spotlight with shadow mapping (depth pass + PCF), plus distance-based monster audio for atmosphere.',
           tech: ['C++','OpenGL','GLSL','GLFW','GLM','Shadow Mapping','PCF','Collision System (AABB + Cylinder)','miniaudio','stb_image','tinyobjloader','OBJ/MTL Pipeline'],
           tags: ['GameDev','Graphics','Shaders','Shadow Mapping','Physics','Audio'],
@@ -129,6 +142,7 @@ export default defineComponent({
           type: 'AI',
           year: 2026,
           featured: false,
+          detailsEnabled: false,
           desc: 'Search algorithms for the UC Berkeley Pacman AI project. Implemented DFS/BFS/UCS/A* plus advanced problems like CornersProblem and FoodSearchProblem with admissible heuristics (Manhattan-based) and heuristic caching for faster runs. Includes a greedy ClosestDotSearchAgent and passes the autograder with max score.',
           tech: ['Python 3','State-Space Search','DFS','BFS','Uniform Cost Search','A* Search','Admissible Heuristics','Manhattan Distance','Maze Distance','Heuristic Caching (problem.heuristicInfo)','Pacman AI Framework (UC Berkeley)','Autograder'],
           tags: ['AI','Search','A*','UCS','Heuristics','Pacman'],
@@ -139,6 +153,7 @@ export default defineComponent({
           type: 'AI',
           year: 2026,
           featured: true,
+          detailsEnabled: false,
           desc: 'Adversarial multi-agent decision-making for the UC Berkeley Pacman AI project. Implemented a ReflexAgent plus Minimax and Alpha-Beta pruning agents that model Pacman (MAX) vs. Ghosts (MIN), look ahead over game trees, and choose actions using evaluation functions while handling terminal states (win/lose) and depth control.',
           tech: ['Python 3','Adversarial Search','Minimax','Alpha-Beta Pruning','Game Trees','Heuristic Evaluation','Pacman AI Framework (UC Berkeley)','Autograder'],
           tags: ['AI','Game AI','Adversarial Search','Minimax','Alpha-Beta','Heuristics'],
@@ -149,6 +164,7 @@ export default defineComponent({
           type: 'AI',
           year: 2026,
           featured: true,
+          detailsEnabled: false,
           desc: 'Reinforcement Learning agents for the UC Berkeley Pacman project. Implemented MDP planning with Value Iteration (including Prioritized Sweeping), plus model-free Q-Learning with epsilon-greedy exploration and Approximate Q-Learning using feature extractors. Tested in Gridworld and Pacman, with parameter analysis for different optimal policies.',
           tech: ['Python 3','MDP','Value Iteration','Prioritized Sweeping','Q-Learning','Approximate Q-Learning','Epsilon-Greedy','Feature Extractors','Gridworld','Pacman AI Framework (UC Berkeley)','Autograder'],
           tags: ['AI','Reinforcement Learning','MDP','Q-Learning','Planning','Pacman'],
@@ -159,6 +175,7 @@ export default defineComponent({
           type: 'Hardware',
           year: 2023,
           featured: true,
+          detailsEnabled: false,
           desc: 'Digital vending machine implemented in VHDL: accepts 5/10/50 bani coins via photodetector inputs (F0–F2), rejects invalid coins/foreign objects (F3), accumulates credit using an 8-bit adder, and releases Coca-Cola when the user presses the dispense button. If credit is insufficient, it signals “FonduriInsuficiente” and returns coins; if credit exceeds 100 bani, it also triggers change return. Designed as a black-box then split into Control Unit (UC) and Execution Unit (UE) for clean control vs datapath separation.',
           tech: ['VHDL','Digital Design','FSM Control Logic','Control Unit (UC) / Execution Unit (UE)','MUX 4:1','8-bit Adder (Full Adders)','Clocked Logic','I/O Interface (Photocells + Button)'],
           tags: ['FPGA','Hardware','Digital Design','FSM','Datapath','VHDL'],
@@ -169,6 +186,7 @@ export default defineComponent({
           type: 'Hardware',
           year: 2024,
           featured: true,
+          detailsEnabled: false,
           desc: 'Designed and simulated two MIPS CPU architectures in VHDL: a complete single-cycle processor (ALU, register file, instruction/data memory, control signals) and an extended 5-stage pipelined version (IF, ID, EX, MEM, WB) using pipeline registers. Added hazard handling via forwarding and hazard detection, and validated execution flow with dedicated testbenches for arithmetic, branching, and memory instructions.',
           tech: ['VHDL','CPU Architecture','MIPS ISA','Single-Cycle Datapath','5-Stage Pipeline (IF/ID/EX/MEM/WB)','Pipeline Registers','Hazard Detection Unit','Forwarding Unit','Control Unit','ALU','Register File','Testbenches','Simulation/Timing Verification'],
           tags: ['CPU Design','MIPS','Pipeline','Hazards','VHDL','Digital Design'],
@@ -179,6 +197,7 @@ export default defineComponent({
           type: 'Systems',
           year: 2023,
           featured: false,
+          detailsEnabled: false,
           desc: 'Small Java arcade-style game where the player controls a ball and must avoid obstacles to survive and score points. Built as a lightweight desktop project focused on game loop logic, collision checks, and simple UI rendering.',
           tech: ['Java','OOP','2D Game Loop','Collision Detection','Desktop UI'],
           tags: ['Java','GameDev','Desktop','OOP'],
@@ -189,6 +208,7 @@ export default defineComponent({
           type: 'Embedded',
           year: 2024,
           featured: false,
+          detailsEnabled: false,
           desc: 'Motion-based anti-theft system for a bicycle built on ESP32. Uses a GY-521 (MPU6050 accelerometer/gyroscope) over I2C to detect movement above calibrated thresholds. The alarm is armed/disarmed from the phone via Arduino IoT Remote, and when motion is detected it triggers a visual alert (2 red LEDs blinking) and an audible alert (active buzzer). A green LED indicates the system is powered/active.',
           tech: ['ESP32','Arduino (C/C++)','MPU6050 / GY-521','I2C (Wire.h)','Arduino IoT Cloud / Arduino IoT Remote','Threshold Calibration','LED + Buzzer Output','Serial Debugging'],
           tags: ['Embedded','ESP32','Sensors','I2C','Alarm','IoT'],
@@ -199,6 +219,7 @@ export default defineComponent({
           type: 'PHP',
           year: 2024,
           featured: false,
+          detailsEnabled: false,
           desc: 'Web mini-app in PHP that authenticates users (login + session) and exposes a set of database exercises as interactive queries. Uses prepared statements and calls multiple MySQL stored procedures (CALL ...) to fetch results such as tests by semester/date, correct answers for a given test, fully answered tests, per-test question count and total score, and question ranking based on a computed ratio.',
           tech: ['PHP','HTML','MySQL','Stored Procedures','Prepared Statements','Sessions/Auth','SQL Queries'],
           tags: ['Database','SQL','Stored Procedures','PHP','Web'],
@@ -273,6 +294,14 @@ export default defineComponent({
         PHP: 'b-php',
       }
       return map[type] || 'b-default'
+    },
+
+    openDetails(project) {
+      if (!project.detailsEnabled || !project.slug) return
+      this.$router.push({
+        name: 'project-details',
+        params: { slug: project.slug }
+      })
     },
   },
 })
@@ -386,6 +415,31 @@ export default defineComponent({
   font-size: 18px;
   letter-spacing: 0.2px;
   color: rgba(255,255,255,0.92);
+}
+
+.foot-left{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.details-btn{
+  border: 1px solid rgba(39,245,214,0.35);
+  background: rgba(39,245,214,0.10);
+  color: #bffdf4;
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  transition: 0.18s ease;
+}
+
+.details-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(39,245,214,0.16);
+  border-color: rgba(39,245,214,0.50);
 }
 
 .badges{
