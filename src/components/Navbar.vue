@@ -14,10 +14,29 @@
 </template>
 
 <script setup>
-function goTo(section) {
+
+import {useRoute, useRouter} from "vue-router";
+
+const route = useRoute()
+const router = useRouter()
+
+function scrollToSection(section) {
   const el = document.getElementById(section)
-  if(!el) return;
+  if(!el) return
   el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+function goTo(section) {
+  if( route.path !== '/'){
+    router.push('/').then(() => {
+      setTimeout(() => {
+        scrollToSection(section)
+      }, 100)
+    })
+    return
+  }
+
+  scrollToSection(section)
 }
 </script>
 
