@@ -196,7 +196,9 @@ export default defineComponent({
           { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/4.png`, alt: 'RV Auto Seller login and register pages' },
           { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/5.png`, alt: 'RV Auto Seller seller dashboard for managing listings' },
           { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/6.png`, alt: 'RV Auto Seller appointments management page' },
-          { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/7.png`, alt: 'RV Auto Seller admin dashboard with tables and statistics' },
+          { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/7.png`, alt: 'RV Auto Seller add new listing page 1' },
+          { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/8.png`, alt: 'RV Auto Seller add new listing page 2' },
+          { src: `${import.meta.env.BASE_URL}images/rv-auto-seller/9.png`, alt: 'RV Auto Seller admin dashboard with tables and statistics' },
         ],
       },
     }
