@@ -112,38 +112,38 @@ export default defineComponent({
         github: 'https://github.com/palroland21/RV-AUTO-SELLER',
 
         summary:
-            'Full-stack car marketplace built with Spring Boot and Vue. The platform supports public listing browsing, advanced filtering, seller-buyer interaction, appointment scheduling, feedback, and admin management through a JWT-secured REST API.',
+             'Secure full-stack car marketplace built with Spring Boot and Vue. The platform includes JWT-based authentication, role-based access, admin management, vehicle listing and filtering, seller-buyer interaction, appointment scheduling, and review functionality through a PostgreSQL-backed REST API.',
 
         features: [
           'Browse active car listings with <span class="hl">image galleries</span>',
-          'View full vehicle details and <span class="hl">seller information</span>',
-          'Search by title and filter by <span class="hl">brand</span>, <span class="hl">model</span>, <span class="hl">price</span>, <span class="hl">year</span>, <span class="hl">fuel</span>, <span class="hl">mileage</span>, <span class="hl">location</span>, and <span class="hl">gearbox</span>',
-          'Register, login, and access <span class="hl">protected user actions</span>',
-          'Book viewing / test-drive <span class="hl">appointments</span>',
-          'Leave <span class="hl">feedback</span> and reviews for sellers',
-          '<span class="hl">Seller dashboard</span> for listing management and image upload',
-          '<span class="hl">Admin dashboard</span> for user/listing management and platform statistics',
+          'View detailed vehicle pages and <span class="hl">seller information</span>',
+          'Search by title and filter by <span class="hl">brand</span>, <span class="hl">model</span>, <span class="hl">price</span>, <span class="hl">year</span>, <span class="hl">fuel type</span>, <span class="hl">mileage</span>, <span class="hl">location</span>, and <span class="hl">gearbox</span>',
+          'Register, log in, and access <span class="hl">protected user actions</span>',
+          'Schedule <span class="hl">viewing / test-drive appointments</span>',
+          'Leave <span class="hl">reviews and feedback</span> for sellers',
+          '<span class="hl">Seller dashboard</span> for listing management and image handling',
+          '<span class="hl">Admin dashboard</span> for user management, listing moderation, and platform statistics',
         ],
 
         implemented: [
-          'Built a <span class="hl">Spring Boot REST API</span> for auth, listings, appointments, and feedback',
-          'Implemented authentication and authorization with <span class="hl">Spring Security</span> and <span class="hl">JWT</span>',
-          'Modeled the backend with <span class="hl">JPA / Hibernate</span> entities and database persistence',
-          'Created <span class="hl">CRUD</span> flows for listings, seller actions, and admin operations',
-          'Implemented server-side <span class="hl">image upload</span> and storage for car galleries',
-          'Built the Vue frontend and integrated it with the backend using <span class="hl">Axios</span>',
-          'Tested API flows and request handling with <span class="hl">Postman</span>',
+          'Built a <span class="hl">Spring Boot REST API</span> for authentication, listings, appointments, reviews, and admin workflows',
+          'Implemented <span class="hl">authentication and authorization</span> with <span class="hl">Spring Security</span> and <span class="hl">JWT</span>',
+          'Designed and mapped backend entities using <span class="hl">JPA / Hibernate</span> with <span class="hl">PostgreSQL</span> persistence',
+          'Developed <span class="hl">CRUD workflows</span> for listings, seller operations, appointment requests, and admin actions',
+          'Implemented server-side <span class="hl">multipart image upload</span> and storage for vehicle galleries',
+          'Built the <span class="hl">Vue frontend</span> and integrated it with backend endpoints using <span class="hl">Axios</span>',
+          'Validated and tested API request flows using <span class="hl">Postman</span>',
         ],
 
         engineeringHighlights: [
-          'Client-server architecture with separate <span class="hl">Vue frontend</span> and <span class="hl">Spring Boot backend</span>',
-          '<span class="hl">REST API</span> communication for auth, listings, appointments, feedback, and admin flows',
-          '<span class="hl">Role-based access control</span> for Client, Seller, and Administrator',
-          '<span class="hl">JWT-secured</span> authentication and protected endpoints',
-          '<span class="hl">PostgreSQL</span> persistence using <span class="hl">Spring Data JPA</span> and <span class="hl">Hibernate</span>',
-          '<span class="hl">Multipart image upload</span> with server-side storage',
-          'Frontend-backend integration through <span class="hl">Axios</span>',
-          '<span class="hl">Admin dashboard</span> and seller workflows for real marketplace scenarios',
+          '<span class="hl">Client-server architecture</span> with a separate <span class="hl">Vue frontend</span> and <span class="hl">Spring Boot backend</span>',
+          '<span class="hl">REST API</span> communication for authentication, listings, appointments, reviews, and admin flows',
+          '<span class="hl">Role-based access control</span> for <span class="hl">Client</span>, <span class="hl">Seller</span>, and <span class="hl">Administrator</span>',
+          '<span class="hl">JWT-secured</span> authentication with <span class="hl">protected endpoints</span>',
+          '<span class="hl">PostgreSQL</span> persistence through <span class="hl">Spring Data JPA</span> and <span class="hl">Hibernate</span>',
+          '<span class="hl">Multipart image upload</span> with server-side file handling and storage',
+          'Frontend-backend integration through <span class="hl">Axios</span>-based API calls',
+          '<span class="hl">Seller</span> and <span class="hl">admin workflows</span> designed for realistic marketplace scenarios',
         ],
 
         tech: [
@@ -154,39 +154,22 @@ export default defineComponent({
           'JWT',
           'Spring Data JPA',
           'Hibernate',
-          'Jackson',
+          'Bean Validation',
           'Lombok',
+
           'Vue 3',
           'Vite',
           'TypeScript',
           'Axios',
-          'CORS',
-          'Relational Database',
+
+          'REST API',
           'SQL',
           'PostgreSQL',
+          'CORS',
+
           'Postman',
           'Git',
-          'GitHub',
-        ],
-
-        architecture: [
-          'Client-server web architecture',
-          'REST-based communication between Vue frontend and Spring Boot backend',
-          'Role-based access model: client, seller, administrator',
-          'JWT-secured endpoints with protected resources',
-          'Persistent relational data model for users, listings, images, appointments, and feedback',
-          'Server-side file storage for uploaded listing images',
-        ],
-
-        backendHighlights: [
-          'Authentication endpoints for register and login',
-          'Listing endpoints for browse, details, create, update, delete, and filtering/search flows',
-          'Appointment endpoints for request, confirm, and reject flows',
-          'Feedback endpoints for review creation and retrieval',
-          'Admin endpoints for user and listing management',
-          'Security layer for access control and current-user identification',
-          'Service layer responsible for business logic',
-          'Persistence layer built with JPA repositories and mapped entities',
+          'GitHub'
         ],
 
         images: [
