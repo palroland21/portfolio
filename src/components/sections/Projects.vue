@@ -82,7 +82,7 @@ export default defineComponent({
 
       projects: [
         {
-          title: 'RV Auto Seller Platform',
+          title: 'Auto Seller Platform',
           type: 'Full-Stack',
           year: 2026,
           featured: true,
