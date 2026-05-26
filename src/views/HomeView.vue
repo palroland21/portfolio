@@ -12,6 +12,6 @@
 import Hero from '@/components/sections/Hero.vue'
 import About from '@/components/sections/About.vue'
 import Skills from '@/components/sections/Skills.vue'
-import Projects from '@/components/sections/Projects.vue'
+import Projects from '@/components/sections/projects/Projects.vue'
 import Contact from '@/components/sections/Contact.vue'
 </script>
